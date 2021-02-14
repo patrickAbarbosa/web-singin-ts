@@ -979,25 +979,6 @@
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
   integrity sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==
 
-"@types/next-redux-saga@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@types/next-redux-saga/-/next-redux-saga-3.0.2.tgz#1440cabcfa1f979ccd52dd9e298fb53e0d39ed72"
-  integrity sha512-CsFSvQ4MRyOqALoDQ3zGC9E+PaKYgf/DPm9Nhftm274IXtDNtAVsxV/P5N19mjY97+LvyVWz9BfC3YevBpECzw==
-  dependencies:
-    "@types/next-redux-wrapper" "^2.0.2"
-    "@types/react" "*"
-    redux "^3.6.0"
-
-"@types/next-redux-wrapper@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@types/next-redux-wrapper/-/next-redux-wrapper-2.0.2.tgz#ab74f5988911b3403c4da91c6d7dabac4aa2f9fb"
-  integrity sha512-/PJbBiq+MB7SVQ5MEqfOrZelW8CBEbPXi59qkZ0JdyzWDmJZPgcEuGDZnjPITvENoVgxqunhwkg0Qb+s3ZUCTw==
-  dependencies:
-    "@types/node" "*"
-    "@types/react" "*"
-    "@types/react-redux" "*"
-    redux "^3.6.0"
-
 "@types/next-redux-wrapper@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/next-redux-wrapper/-/next-redux-wrapper-3.0.0.tgz#45835a2e702e76d30b57125dc808db636f54fa2c"
@@ -1005,7 +986,7 @@
   dependencies:
     next-redux-wrapper "*"
 
-"@types/node@*", "@types/node@^14.14.27":
+"@types/node@^14.14.27":
   version "14.14.27"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.27.tgz#c7127f8da0498993e13b1a42faf1303d3110d2f2"
   integrity sha512-Ecfmo4YDQPwuqTCl1yBxLV5ihKfRlkBmzUEDcfIRvDxOTGQEeikr317Ln7Gcv0tjA8dVgKI3rniqW2G1OyKDng==
@@ -1025,7 +1006,7 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/react-redux@*", "@types/react-redux@^7.1.16":
+"@types/react-redux@^7.1.16":
   version "7.1.16"
   resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-7.1.16.tgz#0fbd04c2500c12105494c83d4a3e45c084e3cb21"
   integrity sha512-f/FKzIrZwZk7YEO9E1yoxIuDNRiDducxkFlkw/GNMGEnK9n4K8wJzlJBghpSuOVDgEUHoDkDF7Gi9lHNQR4siw==
@@ -1049,6 +1030,13 @@
   integrity sha1-gL8hB4N568lzh9vlbkRGe1Z3+oU=
   dependencies:
     redux-saga "*"
+
+"@types/redux-thunk@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/redux-thunk/-/redux-thunk-2.1.0.tgz#bc2b6e972961831afb82a9bf4f06726e351f9416"
+  integrity sha1-vCtulylhgxr7gqm/TwZybjUflBY=
+  dependencies:
+    redux-thunk "*"
 
 "@types/redux@^3.6.0":
   version "3.6.0"
@@ -3380,11 +3368,6 @@ locate-path@^5.0.0:
   dependencies:
     p-locate "^4.1.0"
 
-lodash-es@^4.2.1:
-  version "4.17.20"
-  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.20.tgz#29f6332eefc60e849f869c264bc71126ad61e8f7"
-  integrity sha512-JD1COMZsq8maT6mnuz1UMV0jvYD0E0aUsSOdrr1/nAG3dhqQXwRRgeW0cSqH1U43INKcqxaiVIQNOUDld7gRDA==
-
 lodash.mergewith@4.6.2:
   version "4.6.2"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
@@ -3395,7 +3378,7 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.2.1:
+lodash@^4.17.13, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.20"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
@@ -3570,11 +3553,6 @@ next-images@^1.7.0:
   dependencies:
     file-loader "^6.0.0"
     url-loader "^4.0.0"
-
-next-redux-saga@^4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/next-redux-saga/-/next-redux-saga-4.1.2.tgz#adf65cd694deac2514676767d3b733862297db66"
-  integrity sha512-UEI/8bRObquIpHeHX1RuqOFBe2zhI2gTHLijBLiinOZrCbir18B4/lJpymrEoHHpel0iiZEwV4R6jeUWYv+Avw==
 
 next-redux-wrapper@*, next-redux-wrapper@^6.0.2:
   version "6.0.2"
@@ -4358,12 +4336,17 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
-redux-saga@*, redux-saga@^1.1.3:
+redux-saga@*:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.1.3.tgz#9f3e6aebd3c994bbc0f6901a625f9a42b51d1112"
   integrity sha512-RkSn/z0mwaSa5/xH/hQLo8gNf4tlvT18qXDNvedihLcfzh+jMchDgaariQoehCpgRltEm4zHKJyINEz6aqswTw==
   dependencies:
     "@redux-saga/core" "^1.1.3"
+
+redux-thunk@*, redux-thunk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
+  integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
 redux@*, redux@^4.0.0, redux@^4.0.4, redux@^4.0.5:
   version "4.0.5"
@@ -4372,16 +4355,6 @@ redux@*, redux@^4.0.0, redux@^4.0.4, redux@^4.0.5:
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
-
-redux@^3.6.0:
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-3.7.2.tgz#06b73123215901d25d065be342eb026bc1c8537b"
-  integrity sha512-pNqnf9q1hI5HHZRBkj3bAngGZW/JMCmexDlOxw4XagXY2o1327nHH54LoTjiPJ0gizoqPDRqWyX/00g0hD6w+A==
-  dependencies:
-    lodash "^4.2.1"
-    lodash-es "^4.2.1"
-    loose-envify "^1.1.0"
-    symbol-observable "^1.0.3"
 
 regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
   version "0.13.7"
@@ -4912,7 +4885,7 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-symbol-observable@^1.0.3, symbol-observable@^1.2.0:
+symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==

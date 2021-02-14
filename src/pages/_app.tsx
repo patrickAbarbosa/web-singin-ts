@@ -2,7 +2,6 @@ import 'src/styles/global.css'
 
 import React from 'react'
 import App from 'next/app'
-import withReduxSaga from 'next-redux-saga'
 
 import { ThemeContextProvider } from 'src/modules/Common/contexts/Theme/ThemeContexts'
 import Store from 'src/store'
@@ -28,4 +27,4 @@ class AppProvider extends App {
   }
 }
 
-export default Store.withRedux(withReduxSaga(AppProvider))
+export default Store.withRedux(AppProvider)
