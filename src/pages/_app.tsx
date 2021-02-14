@@ -1,12 +1,13 @@
 import React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
+
+import { ThemeContextProvider } from 'src/modules/Common/contexts/Theme/ThemeContexts'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ChakraProvider>
+    <ThemeContextProvider>
       <Component {...pageProps} />
-    </ChakraProvider>
+    </ThemeContextProvider>
   )
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
-import { Heading } from '@chakra-ui/react'
+
+import { AppHeading } from 'src/modules/Common/components/AppHeading'
 
 const Home: React.FC = () => {
-  return <Heading>Hello World!</Heading>
+  return <AppHeading>Hello World!</AppHeading>
 }
 
 export default Home
