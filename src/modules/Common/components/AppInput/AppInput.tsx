@@ -1,6 +1,6 @@
 import React from 'react'
 import { CloseIcon } from '@chakra-ui/icons'
-import { Flex, Input, InputGroup, InputProps, InputRightElement } from '@chakra-ui/react'
+import { Box, Flex, Input, InputGroup, InputProps, InputRightElement } from '@chakra-ui/react'
 
 import { AppInputLabel, AppInputMessageError } from './styles'
 
@@ -16,10 +16,14 @@ export const AppInput: React.FC<InputProps & AppTextProps> = ({
   messageError,
   w,
   width,
+  mt,
+  marginTop,
+  mb,
+  marginBottom,
   ...inputProps
 }) => {
   return (
-    <>
+    <Box mt={mt || marginTop} mb={mb || marginBottom}>
       {label && <AppInputLabel>{label}</AppInputLabel>}
 
       <InputGroup w={w || width}>
@@ -47,6 +51,6 @@ export const AppInput: React.FC<InputProps & AppTextProps> = ({
       </InputGroup>
 
       {isError && <AppInputMessageError>{messageError}</AppInputMessageError>}
-    </>
+    </Box>
   )
 }
