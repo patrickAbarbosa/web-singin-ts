@@ -17,7 +17,7 @@ export const useSignin = (): HooKReturn => {
   )
 
   const signIn = async (email: string, password: string) => {
-    dispatch(fetchSignIn({ email, password }))
+    dispatch(fetchSignIn(email, password))
   }
 
   return {
