@@ -1,6 +1,14 @@
-import { theme } from '@chakra-ui/react'
+import { ChakraTheme, ColorHues, theme } from '@chakra-ui/react'
 
-const appTheme = {
+type AppTheme = ChakraTheme & {
+  colors: {
+    neutral: Partial<ColorHues>
+    primary: Partial<ColorHues>
+    error: string
+  }
+}
+
+const appTheme: AppTheme = {
   ...theme,
   fonts: {
     ...theme.fonts,
@@ -20,7 +28,7 @@ const appTheme = {
       ...theme.components.Heading,
       baseStyle: {
         ...theme.components.Heading.baseStyle,
-        fontWeight: 400,
+        fontWeight: '400',
       },
     },
   },
@@ -29,19 +37,23 @@ const appTheme = {
     neutral: {
       50: '#E5E5E5',
       100: '#9FABBC',
+      200: '#5d65af',
       300: '#989FDB',
+      400: '#45468b',
+      500: '#3e407e',
       600: '#383E71',
     },
+    primary: {
+      50: '#ab28c0',
+      100: '#ab28c0',
+      200: '#ab28c0',
+      300: '#9D25B0',
+      400: '#45468b',
+      500: '#3e407e',
+      600: '#383e71',
+    },
+    error: '#FF377F',
   },
-  ...theme.sizes,
-  7: '1.75rem',
-  9: '2.25rem',
-  11: '2.75rem',
-  13: '3.25rem',
-  18: '4.5rem',
-  27: '6.75rem',
-  35: '8.75rem',
-  container: '1140px',
 }
 
 export default appTheme
