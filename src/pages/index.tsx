@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { Box, Flex, Grid } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
+import { Box, Flex, Grid, useToast } from '@chakra-ui/react'
+import { validate } from 'email-validator'
+import { NextPage } from 'next'
 
 import SignInImage from 'src/assets/images/background/signin.png'
 import { AppButton } from 'src/modules/Common/components/AppButton'
@@ -9,10 +11,69 @@ import { AppLink } from 'src/modules/Common/components/AppLink'
 import { AppText } from 'src/modules/Common/components/AppText'
 import { AppMainLayout } from 'src/modules/Common/layout/AppMainLayout'
 import { AppPageSeo } from 'src/modules/Common/layout/AppPageSeo'
+import { useSignin } from 'src/modules/pages/SignIn/hooks/useSignin'
 
-const Home: React.FC = () => {
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
+const Home: NextPage = () => {
+  const toast = useToast()
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [emailError, setEmailError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
+
+  const { isLoading, error, signIn, isAuthenticate } = useSignin()
+
+  const handleSingIn = () => {
+    setEmailError(false)
+    setPasswordError(false)
+
+    if (!validate(email)) {
+      setEmailError(true)
+    } else if (password.length < 4) {
+      setPasswordError(true)
+    } else {
+      signIn(email, password)
+    }
+  }
+
+  const renderFeedback = ({ title, message, bg }) => {
+    return (
+      <Box color="white" p={3} bg={bg} rounded="8px">
+        <AppText color="white" fontWeight={700}>
+          {title}
+        </AppText>
+        <AppText color="white">{message}</AppText>
+      </Box>
+    )
+  }
+
+  useEffect(() => {
+    if (isAuthenticate) {
+      toast({
+        position: 'bottom',
+        render: () =>
+          renderFeedback({
+            title: 'Login efetuado com sucesso!',
+            message: 'Olá, seja bem-vindo!',
+            bg: 'linear-gradient(45deg, #9D25B0 0%, #4d25b0 99.18%)',
+          }),
+      })
+    }
+  }, [isAuthenticate, toast])
+
+  useEffect(() => {
+    if (error) {
+      toast({
+        position: 'bottom',
+        render: () =>
+          renderFeedback({
+            title: 'Ops',
+            message: 'Ocorreu um erro! =(',
+            bg: 'linear-gradient(45deg, #FF377F 0%, #FF3737 99.18%)',
+          }),
+      })
+    }
+  }, [error, toast])
 
   return (
     <>
@@ -66,22 +127,30 @@ const Home: React.FC = () => {
                 label="E-MAIL"
                 placeholder="user.name@mail.com"
                 type="email"
+                isDisabled={isLoading}
                 onChange={e => setEmail(e.target.value)}
                 value={email}
                 mt="44px"
+                isError={emailError}
+                messageError="Digite um e-mail válido"
               />
 
               <AppInput
                 label="SENHA"
                 placeholder="*******"
                 type="password"
+                isDisabled={isLoading}
                 onChange={e => setPassword(e.target.value)}
                 value={password}
                 mt="16px"
+                isError={passwordError}
+                messageError="Digite uma senha válida"
               />
 
               <Flex mt="24px" mb={{ base: '-20px', sm: 0 }} justifyContent="center">
-                <AppButton w={{ base: '168px', sm: 'full' }}>Entrar</AppButton>
+                <AppButton w={{ base: '168px', sm: 'full' }} onClick={handleSingIn} isLoading={isLoading}>
+                  Entrar
+                </AppButton>
               </Flex>
             </Box>
 
