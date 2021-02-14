@@ -1,16 +1,29 @@
+import ApiService from 'src/api/ApiService'
+
 import { userTypes } from '../reducers/user'
 
-export const fetchSignIn = (action?: { email: string; password: string }) => {
-  // const payload = {
-  //   firstName: 'Patrick',
-  //   lastName: 'Barbosa',
-  //   email: action.email,
-  //   authorizationToken: 'Oi Patrick',
-  //   role: 'costumer',
-  // }
+export const fetchSignIn = (email: string, password: string) => {
+  return async dispatch => {
+    try {
+      dispatch({ type: userTypes.SIGN_IN })
 
-  return {
-    type: userTypes.SIGN_IN_FAIL,
-    error: action.email,
+      const { data } = await ApiService.post('/', { email, password })
+
+      if (data.authorizationToken) {
+        ApiService.defaults.headers.common.Authorization = data.authorizationToken
+
+        const payload = {
+          firstName: data.identity.name.first,
+          lastName: data.identity.name.last,
+          authorizationToken: data.authorizationToken,
+          email: email,
+        }
+        dispatch({ type: userTypes.SIGN_IN_SUCCESS, payload })
+      } else {
+        dispatch({ type: userTypes.SIGN_IN_FAIL, error: 'Error Authorization Token' })
+      }
+    } catch (error) {
+      dispatch({ type: userTypes.SIGN_IN_FAIL, error })
+    }
   }
 }
